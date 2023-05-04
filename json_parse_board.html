@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ info }}
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data () {
+          return {
+            info: null
+          }
+        },
+        mounted () {
+          axios
+            .get('https://dino-21.github.io/0504_02/board.json')
+            .then(response => (this.info = response))
+        }
+      })
+    </script>
+
+  </body>
+</html>
